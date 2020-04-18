@@ -1,7 +1,3 @@
-Hoje fiz a base do backend
-Faltando checagem da existencia do email (fazer try catch)
-Fazer integração com o front (axios ja instalado e configurado)
-
 16/04
     Done:
         Apliquei 'app.use(cors())' no server.js
@@ -9,4 +5,13 @@ Fazer integração com o front (axios ja instalado e configurado)
     
     To Do:
         Fazer Login
+        Autenticação com JWT
+
+17/04
+    Done:
+        Ajustei checagem de email existente (try catch)
+        Comecei a função de Login porém deu errado a requisição no front apesar de testado no isnomnia
+    
+    To Do:
+        Ajustar Login
         Autenticação com JWT

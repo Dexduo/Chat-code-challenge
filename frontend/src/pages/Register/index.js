@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import api from '../../api'
+import api from '../../services/api'
 
 import './styles.css'
 
@@ -13,13 +13,17 @@ function Register() {
     async function handleSubmit(e) {
         e.preventDefault()
         if(!name || !email) {
-            console.log("Não foi possivel criar usuario, falta informações")
+            alert("Não foi possivel criar usuario, falta informações")
         } else {
-            const res = await api.post('/register', {
-                name,
-                email
-            })
-            console.log(res.data)
+            try{
+                const res = await api.post('/register', {
+                    name,
+                    email
+                })
+                console.log(res.data)
+            } catch(err) {
+                alert("Email já cadastrado")
+            }
         }
     }
     

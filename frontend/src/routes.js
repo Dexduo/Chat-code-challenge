@@ -12,6 +12,7 @@ export default function Routes() {
                 <Route path="/" exact component={Login} />
                 <Route path="/register" component={Register} />
                 <Route path="/home" component={Home} />
+                <Route path="*" component={() => <h1>Page not found</h1>} />
             </Switch>
         </BrowserRouter>
     )

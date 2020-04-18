@@ -16,16 +16,31 @@ mongoose.connect("mongodb+srv://Dexduo:startnow934@cluster0-omvem.mongodb.net/te
 
 app.post('/register', async (request, response) => {
     const { name, email } = request.body
-    const user = await usermodel.create({
-        name,
-        email
-    })
-    return response.send(user)
+    // const user = await usermodel.create({
+    //     name,
+    //     email
+    // })
+    // return response.send(user)
+    try {
+        const user = await usermodel.create({
+            name,
+            email
+        })
+        return response.send(user)
+    } catch(err) {
+        return response.send(500, 'alert')
+    }
 })
 
 app.get("/login", async (request, response) => {
-    const { email } = request.query
+    const { email } = request.body
+    console.log(email)
     return response.send( await usermodel.find({email}) )
+    // try {
+    //     return response.send( await usermodel.find({email}) )
+    // } catch(err) {
+    //     return response.send(500, 'alert')
+    // }
 })
 
 app.listen(3333)
